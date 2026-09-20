@@ -1,4 +1,4 @@
-package MiniBank;
+package MiniBank.copy;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -19,7 +19,8 @@ public class Main {
             System.out.println("3. Tarik Tunai");
             System.out.println("4. Cek Informasi Rekening");
             System.out.println("5. Ganti Akun");
-            System.out.println("0. Keluar");
+            System.out.println("6. Total Transaksi");
+            System.out.println("7. Keluar");
             System.out.print("Pilih Menu: ");
 
             int pilihan = input.nextInt();
@@ -98,15 +99,25 @@ public class Main {
                     }
                     break;
 
-
-                case 0:
-                    isRunning = false;
+                case 6:
+                	if (akunAktif == null) {
+                        System.out.println("Error: Anda belum memiliki rekening!");
+                    } else {
+                        akunAktif.cetakTotalTransaksi();
+                    }
+                    break;
+                    
+                case 7:
+                	isRunning = false;
                     System.out.println("Sistem ditutup. Terima kasih!");
                     break;
                 default:
                     System.out.println("Pilihan tidak valid!");
+                    
             }
         }
         input.close();
     }
+    
+    
 }
